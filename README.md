@@ -2,7 +2,7 @@
 
 A full-stack Web3 application where users connect their wallet, post anonymous gratitude notes permanently on the blockchain, and tip notes they resonate with. Tips transfer peer-to-peer directly to the original poster's wallet — no platform fee, no intermediary.
 
-Live: https://onchain-gratitude-wall.vercel.app
+Live: https://onchain-gratitude-wall.vercel.app  
 Contract: https://sepolia.basescan.org/address/0xF89a49980560c3A0c82a00E9996a4A22f6DbaD44
 
 ---
