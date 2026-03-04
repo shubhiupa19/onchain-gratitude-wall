@@ -1,6 +1,6 @@
 # Gratitude Wall
 
-A full-stack Web3 application where users connect their wallet, post anonymous gratitude notes permanently on the blockchain, and tip notes they resonate with. Tips transfer peer-to-peer directly to the original poster's wallet — no platform fee, no intermediary.
+A full-stack Web3 application where users connect their wallet, post anonymous gratitude notes permanently on the blockchain, and tip notes they resonate with. Tips transfer peer-to-peer directly to the original poster's wallet -no platform fee, no intermediary.
 
 Live: https://onchain-gratitude-wall.vercel.app  
 Contract: https://sepolia.basescan.org/address/0xF89a49980560c3A0c82a00E9996a4A22f6DbaD44
@@ -12,7 +12,7 @@ Contract: https://sepolia.basescan.org/address/0xF89a49980560c3A0c82a00E9996a4A2
 - Wrote and deployed a Solidity smart contract to Base Sepolia with two core functions: `postNote` (stores a note onchain with a timestamp and poster address) and `tipNote` (sends ETH directly to the poster using a low-level `call`, with reentrancy protection via checks-effects-interactions)
 - Built a React frontend that reads contract state and writes transactions using wagmi v2 hooks and viem
 - Implemented wallet connection via MetaMask's injected provider
-- Notes display anonymously in the UI — the poster's address is recorded onchain but never shown
+- Notes display anonymously in the UI -the poster's address is recorded onchain but never shown
 - Feed auto-refreshes every 5 seconds to reflect new posts and tip totals without a page reload
 - Deployed the frontend to Vercel with environment-based contract address configuration
 
@@ -21,14 +21,14 @@ Contract: https://sepolia.basescan.org/address/0xF89a49980560c3A0c82a00E9996a4A2
 ## Skills demonstrated
 
 **Smart contract development**
-- Solidity 0.8.24 — structs, mappings, events, payable functions, direct ETH transfer via `call`
-- Hardhat 3 — local compilation, testnet deployment, unit testing with Mocha/Chai
+- Solidity 0.8.24 -structs, mappings, events, payable functions, direct ETH transfer via `call`
+- Hardhat 3 -local compilation, testnet deployment, unit testing with Mocha/Chai
 - Gas-conscious design: `calldata` for string args, no unnecessary storage reads
 
 **Web3 frontend**
-- wagmi v2 — `useReadContract`, `useWriteContract`, `useWaitForTransactionReceipt`
-- viem — ABI encoding, ETH formatting, type-safe contract interaction
-- Transaction lifecycle handling — pending, confirming, and confirmed states in the UI
+- wagmi v2 -`useReadContract`, `useWriteContract`, `useWaitForTransactionReceipt`
+- viem -ABI encoding, ETH formatting, type-safe contract interaction
+- Transaction lifecycle handling -pending, confirming, and confirmed states in the UI
 
 **Frontend**
 - React with custom hooks abstracting all contract interaction
