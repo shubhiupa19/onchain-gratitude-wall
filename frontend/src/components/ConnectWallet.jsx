@@ -9,6 +9,7 @@ export function ConnectWallet() {
   if (isConnected) {
     return (
       <div className="wallet-connected">
+        <span className="wallet-indicator" />
         <span className="wallet-address">
           {address.slice(0, 6)}...{address.slice(-4)}
         </span>
@@ -24,7 +25,7 @@ export function ConnectWallet() {
       className="btn-primary"
       onClick={() => connect({ connector: injected() })}
     >
-      Connect MetaMask
+      Connect wallet
     </button>
   );
 }

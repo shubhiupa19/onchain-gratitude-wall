@@ -25,10 +25,9 @@ export function PostNote({ onPosted }) {
 
   return (
     <div className="post-note-card">
-      <h2>Share Your Gratitude</h2>
-      <p className="subtitle">
-        Posted anonymously — your wallet is recorded onchain but never shown.
-      </p>
+      <div className="post-note-header">
+        <p className="post-note-label">Write a note</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <textarea
           value={message}
@@ -38,10 +37,17 @@ export function PostNote({ onPosted }) {
           rows={4}
           disabled={!isConnected || isLoading}
         />
-        <div className="form-footer">
-          <span className={`char-count ${remaining < 50 ? "warn" : ""}`}>
-            {remaining} characters remaining
-          </span>
+        <div className="post-note-actions">
+          <div className="post-note-meta">
+            <span className="anon-badge">
+              {isConnected
+                ? "Your wallet is recorded onchain but never displayed."
+                : "Connect your wallet to post."}
+            </span>
+            <span className={`char-count ${remaining < 50 ? "warn" : ""}`}>
+              {remaining} characters remaining
+            </span>
+          </div>
           <button
             type="submit"
             disabled={!isConnected || !message.trim() || isLoading}
@@ -50,19 +56,18 @@ export function PostNote({ onPosted }) {
             {isPending
               ? "Confirm in wallet..."
               : isConfirming
-              ? "Posting onchain..."
-              : "Post Anonymously"}
+              ? "Posting..."
+              : "Post anonymously"}
           </button>
         </div>
-        {!isConnected && (
-          <p className="hint">Connect your wallet to post a note.</p>
+        {(error || isSuccess) && (
+          <div className="post-feedback">
+            {error && (
+              <p className="error">{error.shortMessage || "Transaction failed."}</p>
+            )}
+            {isSuccess && <p className="success">Posted onchain.</p>}
+          </div>
         )}
-        {error && (
-          <p className="error">
-            {error.shortMessage || error.message || "Transaction failed"}
-          </p>
-        )}
-        {isSuccess && <p className="success">Gratitude posted onchain!</p>}
       </form>
     </div>
   );

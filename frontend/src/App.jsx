@@ -4,6 +4,26 @@ import { NotesFeed } from "./components/NotesFeed";
 import { ConnectWallet } from "./components/ConnectWallet";
 import "./App.css";
 
+function WallMark() {
+  return (
+    <svg
+      className="logo-mark"
+      width="22"
+      height="18"
+      viewBox="0 0 22 18"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect x="0" y="0" width="9" height="4.5" rx="1" fill="currentColor" />
+      <rect x="11" y="0" width="11" height="4.5" rx="1" fill="currentColor" opacity="0.5" />
+      <rect x="0" y="6.75" width="13" height="4.5" rx="1" fill="currentColor" opacity="0.75" />
+      <rect x="15" y="6.75" width="7" height="4.5" rx="1" fill="currentColor" opacity="0.4" />
+      <rect x="0" y="13.5" width="5" height="4.5" rx="1" fill="currentColor" opacity="0.45" />
+      <rect x="7" y="13.5" width="15" height="4.5" rx="1" fill="currentColor" opacity="0.7" />
+    </svg>
+  );
+}
+
 export default function App() {
   const queryClient = useQueryClient();
 
@@ -16,11 +36,8 @@ export default function App() {
       <header className="app-header">
         <div className="header-content">
           <div className="logo">
-            <span className="logo-icon">🙏</span>
-            <div>
-              <h1>Gratitude Wall</h1>
-              <p className="tagline">Onchain · Anonymous · Base Sepolia</p>
-            </div>
+            <WallMark />
+            <span className="logo-text">Gratitude Wall</span>
           </div>
           <ConnectWallet />
         </div>
@@ -32,7 +49,7 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Tips go directly onchain to the poster's wallet. Built on Base Sepolia.</p>
+        Tips transfer directly to the poster's wallet. Permanent on Base Sepolia.
       </footer>
     </div>
   );
